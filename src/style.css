@@ -1,0 +1,223 @@
+/* VARIABLES */
+:root {
+  --system-font: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family: "IBM Plex Sans", sans-serif;
+  --bg-color: #f8f8f8;
+  --button-color: #fed049;
+  --font-color: #231e41;
+}
+
+/* DEFAULTS */
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  font-family: var(--font-family), var(--system-font);
+}
+body {
+  height: 100vh;
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--font-color);
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+p {
+  margin: 0;
+  font-size: clamp(0.8rem, 0.8vw, 1.5rem);
+  width: clamp(45ch, 50%, 75ch);
+}
+h1 {
+  margin: 0;
+  font-size: clamp(3rem, 3vw, 4rem);
+  width: clamp(20ch, 50%, 40ch);
+}
+h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
+}
+h3 {
+  margin: 0;
+  font-size: clamp(1.3rem, 1vw, 2rem);
+}
+img {
+  width: 100%;
+  aspect-ratio: 1;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  height: 80px;
+  background: var(--bg-color);
+  z-index: 1;
+}
+nav {
+  display: flex;
+  gap: 22px;
+}
+button {
+  border: none;
+  font-weight: bold;
+  color: var(--font-color);
+  font-size: clamp(0.8rem, 0.8vw, 1.5rem);
+  background: none;
+  transition: all 0.25s ease;
+}
+button:hover:not(.button-nav) {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  translate: 0px -5px;
+}
+.button-nav {
+  opacity: 0.5;
+}
+.button-nav:hover {
+  opacity: 1;
+}
+.button-nav.active {
+  text-decoration: underline dashed 3px;
+  opacity: 1;
+}
+.button-primary {
+  padding: 12px 32px;
+  border-radius: 22px;
+  background: var(--button-color);
+}
+.button-alt {
+  padding: 12px 32px;
+  border-radius: 22px;
+  border: 1px solid var(--font-color);
+}
+input[type="text"] {
+  background: var(--button-color);
+  border-radius: 8px;
+  padding: 0px 12px;
+  border: none;
+  height: 50%;
+}
+input[type="text"]:hover,
+input[type="text"]:focus {
+  box-shadow: inset rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  outline: none;
+}
+
+/* LAYOUT */
+#content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 0px 5%;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+  }
+  .hero-img {
+    width: 70%;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 22px;
+  }
+}
+
+.shop {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  > div {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-wrap: wrap;
+    gap: 22px;
+  }
+  .description {
+    grid-column: 1/4;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 0px 0px;
+    gap: 8px;
+    width: 100%;
+  }
+  .see-all-bar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    grid-column: 4/5;
+  }
+  .menu-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid var(--font-color);
+    border-radius: 22px;
+    gap: 22px;
+    margin-bottom: 22px;
+    padding: 22px;
+    width: 100%;
+    transition: all 0.25s ease;
+    > img {
+      width: 80%;
+    }
+    > p {
+      width: 100%;
+    }
+  }
+  .menu-item:hover {
+    border: none;
+    background: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    translate: 0px -12px;
+  }
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  > div > h2 {
+    padding-top: 22px;
+  }
+  .info-description,
+  .info-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+  .img-container {
+    height: 200px;
+    border-radius: 22px;
+    overflow: hidden;
+    > img {
+      height: 100%;
+      object-fit: cover;
+      object-position: -20% 90%;
+    }
+  }
+  .img-contact {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    > img {
+      width: 10%;
+      object-fit: contain;
+      object-position: 0% 0%;
+    }
+    .icon-big {
+      padding: 9px;
+      width: 8%;
+    }
+  }
+}
